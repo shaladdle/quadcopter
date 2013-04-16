@@ -1,8 +1,7 @@
 #ifndef MotorAxis_h
 #define MotorAxis_h
 
-#include "Arduino.h"
-#include <BrushlessDC.h>
+#include "./BrushlessDC.h"
 
 class MotorAxis {
     private:
@@ -11,7 +10,7 @@ class MotorAxis {
         float minSpeed;
     public:
         MotorAxis(int m1_pin, int m2_pin, float min);
-        void SetAndBalance(float angle);
+        void Set(float power, float ratio);
         void Arm();
 };
 

@@ -1,5 +1,7 @@
-#include "Arduino.h"
+#include <iostream>
 #include "MotorAxis.h"
+
+using namespace std;
 
 MotorAxis::MotorAxis(int m1_pin, int m2_pin, float min) 
     : M1(m1_pin), M2(m2_pin), minSpeed(min) { }
@@ -20,6 +22,8 @@ void MotorAxis::Arm() {
 void MotorAxis::Set(float T, float R) {
     float m1 = (T * R) / (R + 1);
     float m2 = T / (R + 1);
+
+    cout << "m1, m2 = " << m1 << ", " << m2 << endl;
 
     M1.SetSpeed(m1);
     M2.SetSpeed(m2);
